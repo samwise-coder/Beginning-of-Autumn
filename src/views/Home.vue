@@ -4,14 +4,10 @@
 <script>
 import { ref } from "@vue/reactivity";
 import axios from "axios";
-import { onMounted } from "@vue/runtime-core";
 export default {
   setup() {
     let divDom = ref();
-    onMounted(() => {
-      divDom.value.style.width = `${document.body.clientWidth}px`;
-      divDom.value.style.height = `${document.body.clientHeight}px`;
-    });
+
     axios
       .get("/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
       .then((res) => {
@@ -29,5 +25,8 @@ export default {
 </script>
 <style scoped>
 .home {
+  width: 100vw;
+  height: 100vh;
+  background-size: 100vw 100vh;
 }
 </style>
