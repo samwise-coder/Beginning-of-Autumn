@@ -1,17 +1,24 @@
 <template>
   <div class="home" ref="divDom">
-    <div class="demo">flex</div>
+    <div class="demo" @click="handleFlex">flex</div>
     <div class="demo">table</div>
     <div class="demo">canvas</div>
     <div class="demo">animation</div>
   </div>
+  <router-view> </router-view>
 </template>
 <script>
 import { ref } from "@vue/reactivity";
+import { useRouter } from "vue-router";
 import axios from "axios";
 export default {
   setup() {
     let divDom = ref();
+    const router = useRouter();
+    const handleFlex = () => {
+      console.log("flex");
+      router.push("/flex");
+    };
     axios
       .get("/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
       .then((res) => {
@@ -23,6 +30,7 @@ export default {
       });
     return {
       divDom,
+      handleFlex,
     };
   },
 };
