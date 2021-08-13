@@ -2,7 +2,7 @@
   <div class="home" ref="divDom">
     <div class="demo" @click="handleFlex">flex</div>
     <div class="demo">table</div>
-    <div class="demo">canvas</div>
+    <div class="demo" @click="handleCanvas">canvas</div>
     <div class="demo">animation</div>
   </div>
   <router-view> </router-view>
@@ -19,6 +19,9 @@ export default {
       console.log("flex");
       router.push("/flex");
     };
+    const handleCanvas = () => {
+      router.push("/canvas");
+    };
     axios
       .get("/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
       .then((res) => {
@@ -31,6 +34,7 @@ export default {
     return {
       divDom,
       handleFlex,
+      handleCanvas,
     };
   },
 };

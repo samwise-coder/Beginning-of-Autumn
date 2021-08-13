@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/flex',
     name: 'Flex',
     component: () => import('../views/Grid.vue')
+  },
+  {
+    path: '/canvas',
+    name: 'Canvas',
+    component: () => import('../views/Canvas.vue')
   }
 ]
 
