@@ -3,7 +3,7 @@
     <div class="demo" @click="handleFlex">flex</div>
     <div class="demo">table</div>
     <div class="demo" @click="handleCanvas">canvas</div>
-    <div class="demo">animation</div>
+    <div class="demo" @click="handleAnimation">animation</div>
   </div>
   <router-view> </router-view>
 </template>
@@ -15,6 +15,10 @@ export default {
   setup() {
     let divDom = ref();
     const router = useRouter();
+    const handleAnimation = () => {
+      console.log("animation");
+      router.push("/animation");
+    };
     const handleFlex = () => {
       console.log("flex");
       router.push("/flex");
@@ -35,6 +39,7 @@ export default {
       divDom,
       handleFlex,
       handleCanvas,
+      handleAnimation,
     };
   },
 };
