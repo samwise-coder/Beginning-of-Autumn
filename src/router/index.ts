@@ -29,6 +29,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/animation',
     name: 'Animation',
     component: () => import('../views/Animation.vue')
+  },
+  {
+    path: '/es6',
+    name: 'Es6',
+    component: () => import('../views/ES6.vue')
+  },
+  {
+    path: '/ts',
+    name: 'Ts',
+    component: () => import('../views/Ts.vue')
   }
 ]
 
