@@ -10,7 +10,7 @@
 <script>
 export default {
   mounted() {
-    console.log(window.localStorage);
+    console.log("ssss");
   },
 };
 </script>
