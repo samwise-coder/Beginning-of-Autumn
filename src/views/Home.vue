@@ -6,6 +6,7 @@
     <div class="demo" @click="handleAnimation">animation</div>
     <div class="demo" @click="handleES6">ES6</div>
     <div class="demo" @click="handleTs">Ts</div>
+    <div class="demo" @click="handleReg">reg</div>
   </div>
   <router-view> </router-view>
 </template>
@@ -35,6 +36,9 @@ export default {
     const handleCanvas = () => {
       router.push("/canvas");
     };
+    const handleReg = () => {
+      router.push("/reg");
+    };
     axios
       .get("/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
       .then((res) => {
@@ -59,6 +63,7 @@ export default {
       handleAnimation,
       handleES6,
       handleTs,
+      handleReg,
     };
   },
 };
