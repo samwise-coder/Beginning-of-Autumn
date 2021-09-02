@@ -11,19 +11,15 @@
 <script>
 export default {
   mounted() {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(400, 500);
-    // ctx.lineTo(200, 130);
-    // ctx.lineTo(200, 100);
-    // ctx.fillStyle = "red";
-    // ctx.fill();
-    // 或者
-    // ctx.closePath();
+    // var 的情况
+    var foo = 2;
 
-    ctx.stroke();
+    console.log(foo); // 输出undefined
+
+    // let 的情况
+    let bar = 3;
+
+    console.log(bar); // 报错ReferenceError
   },
 };
 </script>

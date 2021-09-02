@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    var str = "Vis9it Runoob!9 r|r9Unhahaha!";
+    var n = str.replace(/^vis\d/i, "sss");
+    console.log(n);
+  },
+};
 </script>
 
 <style>
