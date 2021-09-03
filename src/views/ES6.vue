@@ -10,16 +10,11 @@
 
 <script>
 export default {
+  //1.不存在变量提升
+  //2.暂时性死区
+  //3.不允许重复声明
   mounted() {
-    // var 的情况
-    var foo = 2;
-
-    console.log(foo); // 输出undefined
-
-    // let 的情况
-    let bar = 3;
-
-    console.log(bar); // 报错ReferenceError
+    console.log("hello".repeat(2));
   },
 };
 </script>
