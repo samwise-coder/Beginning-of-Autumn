@@ -14,7 +14,14 @@ export default {
   //2.暂时性死区
   //3.不允许重复声明
   mounted() {
-    console.log("hello".repeat(2));
+    //tailcall
+    function factorial(n) {
+      if (n === 1) return 1;
+      return n * factorial(n - 1);
+    }
+
+    var a = factorial(5); // 120
+    console.log(a);
   },
 };
 </script>
