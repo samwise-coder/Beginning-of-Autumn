@@ -4,24 +4,27 @@
     <img class="test" src="@/assets/image/hanberger.svg" alt="" />
     <img class="test" src="@/assets/image/hanberger.svg" alt="" />
     <img class="test" src="@/assets/image/hanberger.svg" alt="" />
-    <canvas id="myCanvas"></canvas>
+    <canvas id="myCanvas"> </canvas>
   </div>
 </template>
 
 <script>
 export default {
-  //1.不存在变量提升
-  //2.暂时性死区
-  //3.不允许重复声明
-  mounted() {
-    //tailcall
-    function factorial(n) {
-      if (n === 1) return 1;
-      return n * factorial(n - 1);
-    }
+  setup() {
+    var target = function () {
+      return "I am the target";
+    };
+    var handler = {
+      apply: function () {
+        return "I am the proxy";
+      },
+    };
 
-    var a = factorial(5); // 120
-    console.log(a);
+    var p = new Proxy(target, handler);
+
+    console.log(p());
+
+    return {};
   },
 };
 </script>
