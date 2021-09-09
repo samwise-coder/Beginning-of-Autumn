@@ -11,15 +11,17 @@
 <script>
 export default {
   setup() {
-    var myIterable = {};
-    myIterable[Symbol.iterator] = function* () {
-      yield 1;
-      yield 2;
-      yield 3;
+    function Point(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Point.prototype.toString = function () {
+      return "(" + this.x + ", " + this.y + ")";
     };
 
-    console.log([...myIterable]);
-
+    var p = new Point(1, 2);
+    console.log(p.toString());
     return {};
   },
 };
