@@ -11,17 +11,26 @@
 <script>
 export default {
   setup() {
-    function Point(x, y) {
-      this.x = x;
-      this.y = y;
+    class MyClass {
+      constructor() {
+        // ...
+      }
+      get prop() {
+        return "getter";
+      }
+      set prop(value) {
+        console.log("setter: " + value);
+      }
     }
 
-    Point.prototype.toString = function () {
-      return "(" + this.x + ", " + this.y + ")";
-    };
+    let inst = new MyClass();
 
-    var p = new Point(1, 2);
-    console.log(p.toString());
+    inst.prop = 123;
+    // setter: 123
+
+    inst.prop;
+    console.log(inst);
+    // 'getter'
     return {};
   },
 };
