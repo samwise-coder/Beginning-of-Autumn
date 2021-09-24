@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 v-html="dataType()"></h1>
+    <h1 v-html="variableDeclare()"></h1>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
       return shuzi + zifu + list + lists + x + y + " " + notSure;
     }
     function variableDeclare() {
-      for (var i = 0; i < 10; i++) {
+      for (let i = 0; i < 10; i++) {
         setTimeout(function () {
           console.log(i);
         }, 100 * i);
