@@ -25,8 +25,16 @@ export default {
       let notSure: any = [12];
       return shuzi + zifu + list + lists + x + y + " " + notSure;
     }
+    function variableDeclare() {
+      for (var i = 0; i < 10; i++) {
+        setTimeout(function () {
+          console.log(i);
+        }, 100 * i);
+      }
+    }
     return {
       dataType,
+      variableDeclare,
     };
   },
 };
