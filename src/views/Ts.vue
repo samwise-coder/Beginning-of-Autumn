@@ -70,6 +70,7 @@ export default {
     let greeter = new Greeter("world");
     console.log(greeter.greet());
     //打卡
+    //daka
     return {
       dataType,
       variableDeclare,
