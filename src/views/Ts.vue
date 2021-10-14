@@ -71,6 +71,7 @@ export default {
     console.log(greeter.greet());
     //打卡
     //daka
+    //10.14
     return {
       dataType,
       variableDeclare,
