@@ -2,6 +2,9 @@
   <div>
     <h1 v-html="dataType()"></h1>
     <h1 v-html="variableDeclare()"></h1>
+    <div class="box">
+      <p>haoshfklshadkfh</p>
+    </div>
   </div>
 </template>
 
@@ -81,4 +84,11 @@ export default {
 </script>
 
 <style>
+.box {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  background-color: crimson;
+  padding: 10px;
+}
 </style>
