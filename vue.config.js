@@ -5,6 +5,11 @@ module.exports = {
                 target: 'https://cn.bing.com',
                 ws: true,
                 changeOrigin: true
+            },
+            'a076d05399.js': {
+                target: 'https://kit.fontawesome.com',
+                ws: true,
+                changeOrigin: true
             }
         }
     },

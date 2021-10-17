@@ -5,6 +5,11 @@
     <div class="box">
       <p>haoshfklshadkfh</p>
     </div>
+    <i class="fas fa-cloud"></i>
+    <i class="fas fa-heart"></i>
+    <i class="fas fa-car"></i>
+    <i class="fas fa-file"></i>
+    <i class="fas fa-bars"></i>
   </div>
 </template>
 
