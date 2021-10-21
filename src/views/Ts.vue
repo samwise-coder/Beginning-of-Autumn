@@ -10,6 +10,43 @@
     <i class="fas fa-car"></i>
     <i class="fas fa-file"></i>
     <i class="fas fa-bars"></i>
+    <hr />
+    <p>霓虹</p>
+    <b>你好</b>
+    <big>你好</big>
+    <i>你好</i>
+    <small>你好</small>
+    <strong>你好</strong>
+    <sub>你好</sub>
+    <sup>你好</sup>
+    <ins>你好</ins>
+    <del>你好</del>
+    <code>code</code>
+    <kbd>keybord</kbd>
+    <abbr title="nihoa">nihoa</abbr>
+    <acronym>定义首字母缩写</acronym>
+    <hr />
+    <p>WWF 的目标是：<q>构建人与自然和谐共存的世界。</q></p>
+    <hr />
+    <p>以下内容引用自 WWF 的网站：</p>
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+      五十年来，WWF 一直致力于保护自然界的未来。 世界领先的环保组织，WWF 工作于
+      100 个国家， 并得到美国一百二十万会员及全球近五百万会员的支持。
+    </blockquote>
+    <hr />
+    <p><abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。</p>
+    <hr />
+    <address>
+      Written by Donald Duck.<br />
+      Visit us at:<br />
+      Example.com<br />
+      Box 564, Disneyland<br />
+      USA
+    </address>
+    <hr />
+    <bdo dir="rtl">This text will be written from right to left</bdo>
+    <hr />
+    <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
   </div>
 </template>
 
