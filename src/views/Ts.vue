@@ -47,6 +47,14 @@
     <bdo dir="rtl">This text will be written from right to left</bdo>
     <hr />
     <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+    <hr />
+    <a name="label">锚（显示在页面上的文本）</a>
+    <a href="http://www.w3school.com.cn/" target="_blank">Visit W3School!</a>
+    <hr />
+    <p>我将显示 A B C</p>
+    <p>我将显示 &#65; &#66; &#67;</p>
+    <p>&#128512;</p>
+    <p style="font-size: 48px">&#128512; &#128516; &#128525; &#128151;</p>
   </div>
 </template>
 
