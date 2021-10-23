@@ -125,6 +125,7 @@ export default {
     //打卡
     //daka
     //10.14
+    console.log(Array.from([1, 2, 3], (x) => x * x));
     return {
       dataType,
       variableDeclare,
