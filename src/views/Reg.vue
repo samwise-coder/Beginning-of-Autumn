@@ -7,7 +7,9 @@
 
 <script>
 import SelfVmodel from "../components/SelfVmodel";
+import myMixin from "@/mixin/myMixin";
 export default {
+  mixins: [myMixin],
   components: {
     SelfVmodel,
   },
