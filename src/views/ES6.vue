@@ -30,7 +30,7 @@ export default {
 
     inst.prop;
     console.log(inst);
-    // 'getter'
+    console.log(String.fromCharCode(0x20bb7));
     return {};
   },
 };
