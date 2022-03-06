@@ -8,6 +8,7 @@
     <div class="demo" @click="handleTs">Ts</div>
     <div class="demo" @click="handleReg">reg</div>
     <div class="demo" @click="handleMaifang">MaiFang</div>
+    <div class="demo" @click="handleWan">Wan</div>
   </div>
   <router-view> </router-view>
 </template>
@@ -43,6 +44,9 @@ export default {
     const handleMaifang = () => {
       router.push("/maifang");
     };
+    const handleWan = () => {
+      router.push("./wan");
+    };
     axios
       .get("/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN")
       .then((res) => {
@@ -69,6 +73,7 @@ export default {
       handleTs,
       handleReg,
       handleMaifang,
+      handleWan,
     };
   },
 };
