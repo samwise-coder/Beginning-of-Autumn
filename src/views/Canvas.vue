@@ -2,12 +2,17 @@
   <div>
     <canvas id="canvas"></canvas>
     <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
+    Faa() {
+      let dom = document.getElementById("canvas2");
+      let ctx = dom.getContext("2d");
+    },
     // 参考资料：https://zhuanlan.zhihu.com/p/28257724
     foo() {
       document.addEventListener("touchmove", function (e) {
