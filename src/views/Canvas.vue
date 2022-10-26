@@ -2,16 +2,26 @@
   <div>
     <canvas id="canvas"></canvas>
     <canvas id="canvas2"></canvas>
-    <canvas id="canvas3"></canvas>
+    <canvas id="canvas3" width="500" height="500"></canvas>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    Faa() {
-      let dom = document.getElementById("canvas2");
-      let ctx = dom.getContext("2d");
+    faa() {
+      var ctx = document.getElementById("canvas3").getContext("2d");
+      var img = new Image();
+      img.onload = function () {
+        for (var i = 0; i < 5; i++) {
+          for (var j = 0; j < 5; j++) {
+            ctx.drawImage(img, j * 100, i * 100, 100, 50);
+          }
+        }
+      };
+      img.src = require("@/assets/logo.png");
+      // img.src =
+      //   "data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==";
     },
     // 参考资料：https://zhuanlan.zhihu.com/p/28257724
     foo() {
@@ -79,6 +89,7 @@ export default {
   mounted() {
     // 参考资料：https://github.com/sunshine940326/canvas-nest
     this.foo();
+    this.faa();
     class Circle {
       //创建对象
       //以一个圆为对象
@@ -216,7 +227,7 @@ body {
   background: #fff;
 }
 
-canvas {
+.canvas1 .canvas2 {
   display: block;
   width: 100%;
   height: 100%;
