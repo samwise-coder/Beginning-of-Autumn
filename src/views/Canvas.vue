@@ -2,7 +2,7 @@
   <div>
     <canvas id="canvas"></canvas>
     <canvas id="canvas2"></canvas>
-    <canvas id="canvas3" width="500" height="500"></canvas>
+    <canvas id="canvas3" width="400" height="400"></canvas>
   </div>
 </template>
 
@@ -11,18 +11,18 @@ export default {
   methods: {
     faa() {
       var ctx = document.getElementById("canvas3").getContext("2d");
+      let canvasDom = document.getElementById("canvas3");
       var img = new Image();
       img.onload = function () {
-        for (var i = 0; i < 5; i++) {
-          for (var j = 0; j < 5; j++) {
-            ctx.drawImage(img, j * 100, i * 100, 100, 50);
-          }
-        }
+        ctx.drawImage(img, 100, 100, 50, 50);
+        let dataUrl = canvasDom.toDataURL("image/jpeg", 0.5);
+        console.log(dataUrl);
       };
       img.src = require("@/assets/logo.png");
       // img.src =
       //   "data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==";
     },
+
     // 参考资料：https://zhuanlan.zhihu.com/p/28257724
     foo() {
       document.addEventListener("touchmove", function (e) {
@@ -227,7 +227,7 @@ body {
   background: #fff;
 }
 
-.canvas1 .canvas2 {
+#canvas #canvas2 {
   display: block;
   width: 100%;
   height: 100%;
