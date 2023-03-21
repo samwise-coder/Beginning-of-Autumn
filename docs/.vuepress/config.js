@@ -25,6 +25,17 @@ module.exports = {
                         link: 'https://github.com/OBKoro1/Brush_algorithm'
                     }
                 ]
+            },
+            {
+                text: "测试内嵌",
+                items: [
+                    {
+                        text: 'Groups1', items: [
+                            { text: '内嵌1', link: 'www.baidu.com' },
+                            { text: '内嵌2', link: 'www.weibo.com' },
+                        ]
+                    }
+                ]
             }
         ],
         sidebar: {
