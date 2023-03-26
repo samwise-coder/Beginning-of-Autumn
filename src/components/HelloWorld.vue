@@ -1,16 +1,14 @@
 <template>
-  <div class="hello">
-    <h1>Simple grid example</h1>
-
-    <div class="container">
-      <div>One</div>
-      <div>Two</div>
-      <div>Three</div>
-      <div>Four</div>
-      <div>Five</div>
-      <div>Six</div>
-      <div>Seven</div>
-    </div>
+  <div class="wrapper">
+    <p>
+      This example requires you to enter commands in your browser's JavaScript
+      console (see
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools"
+        >What are browser developer tools</a
+      >
+      for more information).
+    </p>
   </div>
 </template>
 
@@ -20,19 +18,44 @@ export default {
   props: {
     msg: String,
   },
+  mounted() {
+    this.test();
+  },
+  methods: {
+    test() {
+      var person = {
+        name: ["Bob", "Smith"],
+        age: 32,
+        gender: "male",
+        interests: ["music", "skiing"],
+        bio: function () {
+          alert(
+            this.name[0] +
+              " " +
+              this.name[1] +
+              " is " +
+              this.age +
+              " years old. He likes " +
+              this.interests[0] +
+              " and " +
+              this.interests[1] +
+              "."
+          );
+        },
+        greeting: function () {
+          alert("Hi! I'm " + this.name[0] + ".");
+        },
+      };
+      person.name[0];
+      person.age;
+      person.interests[1];
+      person.bio();
+      person.greeting();
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container > div {
-  border-radius: 5px;
-  padding: 10px;
-  background-color: rgb(207, 232, 220);
-  border: 2px solid rgb(79, 185, 227);
-}
-.container {
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-}
 </style>
