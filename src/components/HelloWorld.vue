@@ -23,34 +23,16 @@ export default {
   },
   methods: {
     test() {
-      var person = {
-        name: ["Bob", "Smith"],
-        age: 32,
-        gender: "male",
-        interests: ["music", "skiing"],
-        bio: function () {
-          alert(
-            this.name[0] +
-              " " +
-              this.name[1] +
-              " is " +
-              this.age +
-              " years old. He likes " +
-              this.interests[0] +
-              " and " +
-              this.interests[1] +
-              "."
-          );
-        },
-        greeting: function () {
-          alert("Hi! I'm " + this.name[0] + ".");
-        },
-      };
-      person.name[0];
-      person.age;
-      person.interests[1];
-      person.bio();
-      person.greeting();
+      var self = this;
+      var a = (this.bbb = 10);
+      console.log("a", a, "b", self);
+      // var oo = {
+      //   kk: "nihao",
+      //   ll: "haha",
+      //   ss: 123,
+      // };
+      var ww = [12, 34, 67];
+      console.log("------", ww.join("bb"));
     },
   },
 };
