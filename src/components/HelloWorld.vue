@@ -1,14 +1,7 @@
 <template>
   <div class="wrapper">
-    <p>
-      This example requires you to enter commands in your browser's JavaScript
-      console (see
-      <a
-        href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools"
-        >What are browser developer tools</a
-      >
-      for more information).
-    </p>
+    <div class="haha" @click="handleClick"></div>
+    <div v-if="isShow" class="xixi"></div>
   </div>
 </template>
 
@@ -18,26 +11,54 @@ export default {
   props: {
     msg: String,
   },
-  mounted() {
-    this.test();
+  data() {
+    return {
+      isShow: false,
+    };
   },
+  mounted() {},
   methods: {
-    test() {
-      var self = this;
-      var a = (this.bbb = 10);
-      console.log("a", a, "b", self);
-      // var oo = {
-      //   kk: "nihao",
-      //   ll: "haha",
-      //   ss: 123,
-      // };
-      var ww = [12, 34, 67];
-      console.log("------", ww.join("bb"));
+    handleClick() {
+      console.log("handleClick");
+      this.isShow = !this.isShow;
     },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped >
+.haha {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  transition: width 2s, height 2s, background-color 2s;
+}
+.haha:hover {
+  width: 200px;
+  height: 200px;
+  background-color: cadetblue;
+}
+.xixi {
+  width: 100px;
+  height: 100px;
+  background-color: darkcyan;
+  animation: motion 2s;
+}
+@keyframes motion {
+  0% {
+    margin-left: 1000px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+@keyframes motion1 {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 1000px;
+  }
+}
 </style>
