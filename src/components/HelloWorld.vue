@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="haha" @click="handleClick"></div>
-    <div v-if="isShow" class="xixi"></div>
+    <div ref="xixi" v-if="isShow" class="xixi"></div>
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
   width: 100px;
   height: 100px;
   background-color: darkcyan;
-  animation: motion 2s;
+  animation: motion1 2s;
 }
 @keyframes motion {
   0% {
