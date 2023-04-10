@@ -21,6 +21,8 @@ export default {
     handleClick() {
       console.log("handleClick");
       this.isShow = !this.isShow;
+      const { log } = console;
+      log("测试对象解构");
     },
   },
 };
