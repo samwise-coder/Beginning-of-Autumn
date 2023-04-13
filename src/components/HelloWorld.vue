@@ -19,10 +19,14 @@ export default {
   mounted() {},
   methods: {
     handleClick() {
-      console.log("handleClick");
-      this.isShow = !this.isShow;
-      const { log } = console;
-      log("测试对象解构");
+      console.log(this.Fibonacci(10));
+    },
+    // 非尾调用
+    Fibonacci(n) {
+      if (n <= 1) {
+        return 1;
+      }
+      return this.Fibonacci(n - 1) + this.Fibonacci(n - 2);
     },
   },
 };
