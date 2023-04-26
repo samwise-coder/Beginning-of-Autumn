@@ -20,6 +20,7 @@ export default {
   methods: {
     handleClick() {
       console.log(this.Fibonacci(10));
+      // 打卡
     },
     // 非尾调用
     Fibonacci(n) {
