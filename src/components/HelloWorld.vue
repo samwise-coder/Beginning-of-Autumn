@@ -1,71 +1,41 @@
 <template>
-  <div class="wrapper">
-    <div class="haha" @click="handleClick"></div>
-    <div ref="xixi" v-if="isShow" class="xixi"></div>
+  <div>
+    <x-tree />
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
-  data() {
+   data() {
     return {
-      isShow: false,
+          testData:[
+            {
+                label:'叶子节点一',
+                value:'',
+                childs:[
+                    {
+                        label:'子节点一'
+                    },
+                    {
+                        label:'子节点二',
+                        childs:[
+                            {
+                                label:'孙节点一'
+                            }
+                        ]
+
+                    }
+                ]
+            },
+            {
+                label:'兄弟节点一'
+            }
+        ]
     };
   },
-  mounted() {},
-  methods: {
-    handleClick() {
-      console.log(this.Fibonacci(10));
-      // 打卡
-    },
-    // 非尾调用
-    Fibonacci(n) {
-      if (n <= 1) {
-        return 1;
-      }
-      return this.Fibonacci(n - 1) + this.Fibonacci(n - 2);
-    },
-  },
+
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped >
-.haha {
-  width: 100px;
-  height: 100px;
-  background-color: brown;
-  transition: width 2s, height 2s, background-color 2s;
-}
-.haha:hover {
-  width: 200px;
-  height: 200px;
-  background-color: cadetblue;
-}
-.xixi {
-  width: 100px;
-  height: 100px;
-  background-color: darkcyan;
-  animation: motion1 2s;
-}
-@keyframes motion {
-  0% {
-    margin-left: 1000px;
-  }
-  100% {
-    margin-left: 0px;
-  }
-}
-@keyframes motion1 {
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 1000px;
-  }
-}
+<style>
 </style>
