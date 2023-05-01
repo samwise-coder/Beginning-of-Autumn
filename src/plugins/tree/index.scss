@@ -1,0 +1,38 @@
+$union-item-padding-left: 40px;
+
+
+
+.tree-container {
+    background-color: rgba(26, 172, 172, 0.448);
+    width: 500px;
+}
+
+.group {
+    padding-left: $union-item-padding-left;
+
+    .row {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: calc($union-item-padding-left/2);
+            border-top: 1px dashed #000;
+            position: absolute;
+            left: calc($union-item-padding-left/-2);
+        }
+
+        &::after {
+            content: "";
+            height: 50%;
+            width: calc($union-item-padding-left/4);
+            border-left: 1px dashed #000;
+            border-right: 1px dashed #000;
+            position: absolute;
+            left: calc($union-item-padding-left/-2);
+            top: 50%;
+        }
+    }
+}
