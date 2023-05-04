@@ -10,8 +10,8 @@
       <section class="row">
         <div
           v-if="item[childsFieldName].length"
-          class="switch"
           @click="item.isOpened = !item.isOpened"
+          :class="switcher"
         >
           {{ item.isOpened ? "-" : "+" }}
         </div>
@@ -19,13 +19,21 @@
         <img src="@/assets/file.svg" />
         <li v-html="item.label"></li>
       </section>
-      <template v-if="item[childsFieldName].length && item.isOpened">
-        <tree-item
-          :items="item[childsFieldName]"
-          :label-field-name="labelFieldName"
-          :childs-field-name="childsFieldName"
-        ></tree-item>
-      </template>
+      <div
+        :class="{
+          drawer: true,
+          expand: item[childsFieldName].length && item.isOpened,
+          collapse: !item.isOpened,
+        }"
+      >
+        <template v-if="item[childsFieldName].length && item.isOpened">
+          <tree-item
+            :items="item[childsFieldName]"
+            :label-field-name="labelFieldName"
+            :childs-field-name="childsFieldName"
+          ></tree-item>
+        </template>
+      </div>
     </ul>
   </div>
 </template>
@@ -54,6 +62,19 @@ export default {
     searchable: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    switcher() {
+      return {
+        switch: true,
+      };
+    },
+    collapser() {
+      return {
+        collapse: true,
+        expand: false,
+      };
     },
   },
   data() {
@@ -177,6 +198,16 @@ $union-item-padding-left: 20px;
       position: absolute;
       left: 0;
     }
+  }
+  .drawer {
+    transition: height 3s ease-in-out;
+    overflow: hidden;
+  }
+  .collapse {
+    height: 0px;
+  }
+  .expand {
+    height: 300px;
   }
 }
 </style>
