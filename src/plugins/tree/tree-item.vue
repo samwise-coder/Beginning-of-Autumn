@@ -1,5 +1,5 @@
 <template>
-  <div class="item-container">
+  <div  :class="itemContainer">
     <ul v-for="(item, index) in items" :key="index" class="group">
       <section class="row">
         <div
@@ -41,6 +41,13 @@ export default {
       default: "childs",
     },
   },
+  computed:{
+    itemContainer(){
+      return{
+        'item-container':true,
+      }
+    }
+  }
 };
 </script>
 
