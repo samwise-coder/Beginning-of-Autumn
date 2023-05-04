@@ -11,7 +11,7 @@
         </div>
         <input type="checkbox" />
         <img src="@/assets/file.svg" />
-        <li>{{ item.label }}</li>
+        <li v-html="item.label"></li>
       </section>
       <template v-if="item[childsFieldName].length && item.isOpened">
         <tree-item

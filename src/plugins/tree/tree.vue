@@ -1,5 +1,11 @@
 <template>
   <div class="tree-container">
+    <input
+      v-if="searchable"
+      type="text"
+      class="searchBox"
+      v-model.trim="searchText"
+    />
     <ul v-for="(item, index) in items" :key="index" class="group">
       <section class="row">
         <div
@@ -11,7 +17,7 @@
         </div>
         <input type="checkbox" />
         <img src="@/assets/file.svg" />
-        <li>{{ item.label }}</li>
+        <li v-html="item.label"></li>
       </section>
       <template v-if="item[childsFieldName].length && item.isOpened">
         <tree-item
@@ -45,9 +51,26 @@ export default {
       type: String,
       default: "childs",
     },
+    searchable: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
-    return {};
+    return {
+      searchText: "",
+    };
+  },
+  watch: {
+    searchText: {
+      handler(val) {
+        if (val) {
+          this.hightLight(true, this.items, new RegExp(val, "gi"));
+        } else {
+          this.hightLight(false, this.items, null);
+        }
+      },
+    },
   },
   created() {
     this.initialize(this.items);
@@ -78,6 +101,29 @@ export default {
       );
       return node;
     },
+    hightLight(isHightLight, arr, reg) {
+      arr.forEach((ele) => {
+        ele[this.labelFieldName] = ele[this.labelFieldName].replace(
+          /<span style=color:yellow>|<\/span>/g,
+          ""
+        );
+        if (isHightLight) {
+          ele[this.labelFieldName] = ele[this.labelFieldName].replace(
+            reg,
+            "<span style=color:yellow>$&</span>"
+          );
+          if (reg.test(ele[this.labelFieldName])) {
+            ele.isShow = true;
+            console.log("finded", ele);
+          }
+        } else {
+          ele.isShow = false;
+        }
+        if (ele[this.childsFieldName] && ele[this.childsFieldName].length) {
+          this.hightLight(isHightLight, ele[this.childsFieldName], reg);
+        }
+      });
+    },
   },
 };
 </script>
@@ -96,6 +142,10 @@ $union-item-padding-left: 20px;
 .tree-container {
   background-color: rgba(26, 172, 172, 0.448);
   width: 500px;
+  .searchBox {
+    width: 60%;
+    margin: 10px;
+  }
 }
 
 .group {

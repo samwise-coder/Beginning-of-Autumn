@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-tree :items="testData" />
+    <x-tree :items="testData" searchable />
   </div>
 </template>
 
