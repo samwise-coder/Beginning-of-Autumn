@@ -6,35 +6,13 @@
       class="searchBox"
       v-model.trim="searchText"
     />
-    <ul v-for="(item, index) in items" :key="index" class="group">
-      <section class="row">
-        <div
-          v-if="item[childsFieldName].length"
-          @click="item.isOpened = !item.isOpened"
-          :class="switcher"
-        >
-          {{ item.isOpened ? "-" : "+" }}
-        </div>
-        <input type="checkbox" />
-        <img src="@/assets/file.svg" />
-        <li v-html="item.label"></li>
-      </section>
-      <div
-        :class="{
-          drawer: true,
-          expand: item[childsFieldName].length && item.isOpened,
-          collapse: !item.isOpened,
-        }"
-      >
-        <template v-if="item[childsFieldName].length && item.isOpened">
-          <tree-item
-            :items="item[childsFieldName]"
-            :label-field-name="labelFieldName"
-            :childs-field-name="childsFieldName"
-          ></tree-item>
-        </template>
-      </div>
-    </ul>
+    <tree-item
+      v-for="(item, index) in items"
+      :key="index"
+      :items="item"
+      :label-field-name="labelFieldName"
+      :childs-field-name="childsFieldName"
+    ></tree-item>
   </div>
 </template>
 
@@ -112,7 +90,7 @@ export default {
           this.childs = it[customChildsFieldName] || [];
           this.value = it["value"] || "";
           this.isActived = it["isActived"] || false;
-          this.isOpened = it["isOpened"] || false;
+          this.isOpened = it["isOpened"] || true;
           this.isShow = it["isShow"] || true;
         }
       }
@@ -166,48 +144,6 @@ $union-item-padding-left: 20px;
   .searchBox {
     width: 60%;
     margin: 10px;
-  }
-}
-
-.group {
-  padding-left: $union-item-padding-left;
-  .row {
-    display: flex;
-    align-items: center;
-    height: 48px;
-    position: relative;
-    padding-left: $union-item-padding-left;
-    .switch {
-      width: 16px;
-      height: 16px;
-      border: 1px solid #333;
-      background-color: #fff;
-      z-index: 10;
-      border-radius: 4px;
-      position: absolute;
-      left: calc($union-item-padding-left/-2);
-      text-align: center;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    &::before {
-      content: "";
-      width: $union-item-padding-left;
-      border-top: 1px dashed #000;
-      position: absolute;
-      left: 0;
-    }
-  }
-  .drawer {
-    transition: height 3s ease-in-out;
-    overflow: hidden;
-  }
-  .collapse {
-    height: 0px;
-  }
-  .expand {
-    height: 300px;
   }
 }
 </style>
