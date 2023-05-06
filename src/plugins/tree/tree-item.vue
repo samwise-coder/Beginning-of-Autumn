@@ -1,7 +1,11 @@
 <template>
   <li :class="itemContainer">
     <section class="row">
-      <div class="switch" @click="items.isOpened = !items.isOpened">
+      <div
+        v-if="items[childsFieldName].length"
+        class="switch"
+        @click="items.isOpened = !items.isOpened"
+      >
         {{ items.isOpened ? "-" : "+" }}
       </div>
       <input type="checkbox" />
@@ -61,38 +65,6 @@ $union-item-padding-left: 20px;
 .group {
   padding-left: $union-item-padding-left;
   border-left: 1px dashed #000;
-  .row {
-    display: flex;
-    align-items: center;
-    height: 48px;
-    position: relative;
-    padding-left: $union-item-padding-left;
-
-    &::before {
-      content: "";
-      width: $union-item-padding-left;
-      border-top: 1px dashed #000;
-      position: absolute;
-      left: 0;
-    }
-    .switch {
-      width: 16px;
-      height: 16px;
-      border: 1px solid #333;
-      background-color: #fff;
-      z-index: 10;
-      border-radius: 4px;
-      position: absolute;
-      left: calc($union-item-padding-left/-2);
-      text-align: center;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
-}
-.group {
-  padding-left: $union-item-padding-left;
   .row {
     display: flex;
     align-items: center;
