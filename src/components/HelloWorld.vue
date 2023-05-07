@@ -36,6 +36,9 @@ export default {
         {
           label: "兄弟节点一",
         },
+        {
+          label: "兄弟节点二",
+        },
       ],
     };
   },
