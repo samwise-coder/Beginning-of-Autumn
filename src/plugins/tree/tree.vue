@@ -11,7 +11,13 @@
         :items="item"
         :label-field-name="labelFieldName"
         :childs-field-name="childsFieldName"
-      ></tree-item>
+      >
+        <template v-slot:icon>
+          <slot name="icon">
+            <img src="@/assets/file.svg" />
+          </slot>
+        </template>
+      </tree-item>
     </ul>
   </div>
 </template>

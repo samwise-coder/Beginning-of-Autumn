@@ -9,7 +9,9 @@
         {{ items.isOpened ? "-" : "+" }}
       </div>
       <input type="checkbox" />
-      <img src="@/assets/file.svg" />
+      <slot name="icon">
+        <img src="@/assets/file.svg" />
+      </slot>
       <li v-html="items.label"></li>
     </section>
     <template v-if="items[childsFieldName].length && items.isOpened">
@@ -22,7 +24,13 @@
           :items="item"
           :label-field-name="labelFieldName"
           :childs-field-name="childsFieldName"
-        />
+        >
+          <template v-slot:icon>
+            <slot name="icon">
+              <img src="@/assets/file.svg" />
+            </slot>
+          </template>
+        </tree-item>
       </ul>
     </template>
   </li>

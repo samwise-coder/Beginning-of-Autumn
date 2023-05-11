@@ -1,6 +1,10 @@
 <template>
   <div>
-    <x-tree :items="testData" searchable />
+    <x-tree :items="testData" searchable>
+      <template v-slot:icon>
+        <img src="@/assets/expand.svg" />
+      </template>
+    </x-tree>
   </div>
 </template>
 
