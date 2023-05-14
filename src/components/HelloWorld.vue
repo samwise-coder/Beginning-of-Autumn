@@ -1,8 +1,8 @@
 <template>
   <div>
     <x-tree :items="testData" searchable>
-      <template v-slot:icon>
-        <img src="@/assets/expand.svg" />
+      <template v-slot:icon="slotProps">
+        <img :src="getIcon(slotProps)" />
       </template>
     </x-tree>
   </div>
@@ -45,6 +45,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    getIcon(paras) {
+      //@/assets/expand.svg
+      console.log(paras.item.label);
+      if (paras.item.label === "子节点二") {
+        return require("@/assets/expand.svg");
+      } else {
+        return require("@/assets/file.svg");
+      }
+    },
   },
 };
 </script>

@@ -9,7 +9,7 @@
         {{ items.isOpened ? "-" : "+" }}
       </div>
       <input type="checkbox" />
-      <slot name="icon">
+      <slot name="icon" v-bind:item="items">
         <img src="@/assets/file.svg" />
       </slot>
       <li v-html="items.label"></li>
@@ -25,8 +25,8 @@
           :label-field-name="labelFieldName"
           :childs-field-name="childsFieldName"
         >
-          <template v-slot:icon>
-            <slot name="icon">
+          <template v-slot:icon="slotProps">
+            <slot name="icon" v-bind:item="slotProps.item">
               <img src="@/assets/file.svg" />
             </slot>
           </template>
