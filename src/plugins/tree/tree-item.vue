@@ -1,6 +1,6 @@
 <template>
   <li :class="itemContainer">
-    <section class="row">
+    <section class="row" draggable @dragstart="handelDrag">
       <div
         v-if="items[childsFieldName].length"
         class="switch"
@@ -58,6 +58,11 @@ export default {
       return {
         "item-container": true,
       };
+    },
+  },
+  methods: {
+    handelDrag(e) {
+      console.log("drag", e);
     },
   },
 };
