@@ -1,6 +1,14 @@
 <template>
   <li :class="itemContainer">
-    <section class="row" draggable @dragstart="handelDrag">
+    <section
+      class="row"
+      draggable
+      @dragstart="handelDragStart"
+      @dragover.prevent="handleDragOver"
+      @dragenter="handleDragEnter"
+      @dragleave="handleDragLeave"
+      @drop="handleDrop"
+    >
       <div
         v-if="items[childsFieldName].length"
         class="switch"
@@ -61,8 +69,21 @@ export default {
     },
   },
   methods: {
-    handelDrag(e) {
-      console.log("drag", e);
+    handleDragEnter(e) {
+      e.target.style.backgroundColor = "blue";
+    },
+    handleDragLeave(e) {
+      e.target.style.backgroundColor = "";
+    },
+    handleDragOver(e) {
+      console.log("drogover", e);
+    },
+    handleDrop(e) {
+      console.log("drop", e);
+      e.target.style.backgroundColor = "";
+    },
+    handelDragStart(e) {
+      console.log("dragStart", e);
     },
   },
 };

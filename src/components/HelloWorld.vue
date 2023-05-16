@@ -50,7 +50,7 @@ export default {
     getIcon(paras) {
       //@/assets/expand.svg
       console.log(paras.item.label);
-      if (paras.item.label === "子节点二") {
+      if (paras.item.label === "孙节点er") {
         return require("@/assets/expand.svg");
       } else {
         return require("@/assets/file.svg");
